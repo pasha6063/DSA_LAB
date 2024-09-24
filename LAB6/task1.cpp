@@ -1,7 +1,5 @@
 #include <iostream>
-
 using namespace std;
-
 class Node
 {
 public:
@@ -14,7 +12,6 @@ public:
         next = NULL;
     }
 };
-
 void insertAtHead(Node *&head, int val)
 {
     Node *new_node = new Node(val);
@@ -123,7 +120,7 @@ void display(Node *head)
     Node *temp = head;
     while (temp != NULL)
     {
-        cout << temp->val << " ";
+        cout << temp->val << "-> ";
         temp = temp->next;
     }
     cout << "NULL" << endl;
