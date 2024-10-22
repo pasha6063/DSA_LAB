@@ -1,12 +1,14 @@
 #include <iostream>
 using namespace std;
+
 struct Node
 {
     int data;
     Node *left;
     Node *right;
 };
-// function to create a new node
+
+// Function to create a new node
 Node *createNode(int value)
 {
     Node *newNode = new Node();
@@ -14,6 +16,8 @@ Node *createNode(int value)
     newNode->left = newNode->right = nullptr;
     return newNode;
 }
+
+// Function to insert a value into the BST
 Node *insert(Node *root, int value)
 {
     if (root == nullptr)
@@ -22,7 +26,6 @@ Node *insert(Node *root, int value)
     }
     if (value < root->data)
     {
-
         root->left = insert(root->left, value);
     }
     else if (value > root->data)
@@ -31,27 +34,48 @@ Node *insert(Node *root, int value)
     }
     return root;
 }
+
+// Function to perform in-order traversal of the BST
 void inOrderTraversal(Node *root)
 {
     if (root == nullptr)
         return;
     inOrderTraversal(root->left);
-    cout << root->data << " ";
+    cout << root->data << " "; // Visit the node
     inOrderTraversal(root->right);
+}
+
+// Function to sort the array using BST
+void bstSort(int arr[], int size)
+{
+    Node *root = nullptr;
+
+    // Insert all elements of the array into the BST
+    for (int i = 0; i < size; i++)
+    {
+        root = insert(root, arr[i]);
+    }
+
+    // Perform in-order traversal to get the sorted array
+    cout << "Sorted array: ";
+    inOrderTraversal(root);
+    cout << endl;
 }
 
 int main()
 {
-    Node *root = nullptr;
-    root = insert(root, 50);
-    root = insert(root, 30);
-    root = insert(root, 20);
-    root = insert(root, 40);
-    root = insert(root, 70);
-    root = insert(root, 60);
-    root = insert(root, 80);
-    cout << "In-oder traversal of the BST:" << endl;
-    inOrderTraversal(root);
+    int arr[] = {50, 30, 20, 40, 70, 60, 80}; // Example unsorted array
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Original array: ";
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
     cout << endl;
+
+    // Sort the array using BST
+    bstSort(arr, size);
+
     return 0;
 }
