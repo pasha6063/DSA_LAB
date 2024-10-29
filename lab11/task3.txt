@@ -1,0 +1,23 @@
+Comparison of Insertion Sort and Bubble Sort
+Analysis of Test Cases
+Already Sorted Array
+
+Insertion Sort:
+Efficient, making only one comparison per element with zero swaps, as all elements are already in place.
+Bubble Sort:
+Although no swaps are needed, it still performs multiple unnecessary passes, resulting in redundant comparisons.
+Result: Insertion Sort is much faster for already sorted arrays due to fewer comparisons.
+Nearly Sorted Array
+
+Insertion Sort:
+Works efficiently by making a few comparisons and swaps to correctly position the out-of-order elements.
+Bubble Sort:
+Performs extra comparisons in every pass, even after the array is sorted, which makes it less efficient.
+Result: Insertion Sort is more suitable for nearly sorted arrays, minimizing both comparisons and swaps.
+Reverse Sorted Array
+
+Insertion Sort:
+Highly inefficient as it must make numerous comparisons and swaps to shift each element into the correct position.
+Bubble Sort:
+Similarly inefficient, but can sometimes require slightly fewer swaps than Insertion Sort due to its iterative passes.
+Result: Both algorithms perform poorly, but Bubble Sort may have a marginal advantage due to fewer swaps.
